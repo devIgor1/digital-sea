@@ -16,9 +16,9 @@ const Navbar = () => {
             <div className="flex h-16 items-center">
               {/* TODO: Mobile navv */}
 
-              <div className="relative -left-7 flex lg:ml-0">
+              <div className="flex lg:ml-0">
                 <Link href="/">
-                  <Icons.logo className="h-32 w-32" />
+                  <Icons.logo />
                 </Link>
               </div>
               <div className="hidden z-50 lg:block lg:self-stretch">
