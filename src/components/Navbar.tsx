@@ -15,12 +15,12 @@ const Navbar = () => {
             <div className="flex h-16 items-center">
               {/* TODO: Mobile navv */}
 
-              <div className="absolute -left-7 flex lg:ml-0">
+              <div className="relative -left-7 flex lg:ml-0">
                 <Link href="/">
                   <Icons.logo className="h-32 w-32" />
                 </Link>
               </div>
-              <div className="hidden z-50 lg:ml-8 lg:block lg:self-stretch">
+              <div className="hidden z-50 lg:block lg:self-stretch">
                 <NavItems />
               </div>
               <div className="ml-auto flex items-center">
@@ -61,6 +61,10 @@ const Navbar = () => {
                       />
                     </div>
                   )}
+
+                  <div className="ml-4 flow-root lg:ml-6">
+                    <Cart />
+                  </div>
                 </div>
               </div>
             </div>
