@@ -13,7 +13,7 @@ export default buildConfig({
   admin: {
     bundler: webpackBundler(),
     meta: {
-      titleSuffix: "-DigitalSea",
+      titleSuffix: "- Digital Sea",
       favicon: "/favicon.ico",
       ogImage: "/thumbnail.jpg",
     },
