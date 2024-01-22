@@ -5,22 +5,17 @@ import { Button, buttonVariants } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
 import { cn } from "@/lib/utils"
+import {
+  AuthCredentialsValidator,
+  TAuthCredentialsValidator,
+} from "@/lib/validators/account-credentials-validator"
+import { trpc } from "@/trpc/client"
+import { zodResolver } from "@hookform/resolvers/zod"
 import { ArrowRight } from "lucide-react"
 import Link from "next/link"
 import { useForm } from "react-hook-form"
-import { zodResolver } from "@hookform/resolvers/zod"
-import { z } from "zod"
 
 const Page = () => {
-  const AuthCredentialsValidator = z.object({
-    email: z.string().email(),
-    password: z
-      .string()
-      .min(8, { message: "Password must be at least 8 characters long." }),
-  })
-
-  type TAuthCredentialsValidator = z.infer<typeof AuthCredentialsValidator>
-
   const {
     register,
     handleSubmit,
