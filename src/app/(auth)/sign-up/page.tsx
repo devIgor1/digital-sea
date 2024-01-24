@@ -87,7 +87,7 @@ const Page = () => {
                     placeholder="you@example.com"
                   />
                   {errors?.email && (
-                    <p className="text-sm ted-red-500">
+                    <p className="text-sm text-red-500">
                       {errors.email?.message}
                     </p>
                   )}
@@ -103,7 +103,7 @@ const Page = () => {
                     placeholder="Password"
                   />
                   {errors?.password && (
-                    <p className="text-sm ted-red-500">
+                    <p className="text-sm text-red-500">
                       {errors.password?.message}
                     </p>
                   )}
