@@ -24,6 +24,14 @@ const Page = () => {
   const isSeller = searchParams.get("as") === "seller"
   const origin = searchParams.get("origin")
 
+  const continueAsSeller = () => {
+    router.push("?as=seller")
+  }
+
+  const continueAsBuyer = () => {
+    router.replace("/sign-in", undefined)
+  }
+
   const {
     register,
     handleSubmit,
@@ -66,7 +74,9 @@ const Page = () => {
         <div className="mx-auto flex w-full flex-col justify-center space-y-6 sm:w-[350px]">
           <div className="flex flex-col items-center space-y-2 text-center">
             <Icons.logo className="h-32 w-32" />
-            <h1 className="text-2xl font-bold">Sign in to your account</h1>
+            <h1 className="text-2xl font-bold">
+              Sign in to your {isSeller ? "seller" : ""} account
+            </h1>
             <Link
               className={buttonVariants({
                 variant: "link",
@@ -131,6 +141,24 @@ const Page = () => {
                 </span>
               </div>
             </div>
+
+            {isSeller ? (
+              <Button
+                onClick={continueAsBuyer}
+                variant="secondary"
+                disabled={isLoading}
+              >
+                Continue as customer
+              </Button>
+            ) : (
+              <Button
+                onClick={continueAsSeller}
+                variant="secondary"
+                disabled={isLoading}
+              >
+                Continue as seller
+              </Button>
+            )}
           </div>
         </div>
       </div>
