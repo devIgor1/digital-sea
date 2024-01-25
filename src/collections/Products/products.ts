@@ -1,5 +1,5 @@
-import { PRODUCT_CATEGORIES } from "../../config/index"
 import { CollectionConfig } from "payload/types"
+import { PRODUCT_CATEGORIES } from "../../config"
 
 export const Products: CollectionConfig = {
   slug: "products",
@@ -27,7 +27,7 @@ export const Products: CollectionConfig = {
     {
       name: "description",
       type: "textarea",
-      label: "Product Details",
+      label: "Product details",
     },
     {
       name: "price",
@@ -46,7 +46,7 @@ export const Products: CollectionConfig = {
     },
     {
       name: "product_files",
-      label: "Product File(s)",
+      label: "Product file(s)",
       type: "relationship",
       required: true,
       relationTo: "product_files",
@@ -117,7 +117,7 @@ export const Products: CollectionConfig = {
         {
           name: "image",
           type: "upload",
-          relationTo: "media  ",
+          relationTo: "media",
           required: true,
         },
       ],
