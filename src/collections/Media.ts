@@ -37,8 +37,8 @@ export const Media: CollectionConfig = {
 
       return await isAdminOrHasAccessToImages()({ req })
     },
-    delete: ({ req }) => isAdminOrHasAccessToImages()({ req }),
-    update: ({ req }) => isAdminOrHasAccessToImages()({ req }),
+    delete: isAdminOrHasAccessToImages(),
+    update: isAdminOrHasAccessToImages(),
   },
   admin: {
     hidden: ({ user }) => user.role !== "admin",
