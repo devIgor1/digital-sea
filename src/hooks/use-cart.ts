@@ -8,8 +8,8 @@ export type CartItem = {
 
 type CartState = {
   items: CartItem[]
-  addItems: (product: Product) => void
-  removeItems: (productId: string) => void
+  addItem: (product: Product) => void
+  removeItem: (productId: string) => void
   clearCart: () => void
 }
 
@@ -17,11 +17,11 @@ export const useCart = create<CartState>()(
   persist(
     (set) => ({
       items: [],
-      addItems: (product) =>
+      addItem: (product) =>
         set((state) => {
           return { items: [...state.items, { product }] }
         }),
-      removeItems: (id) =>
+      removeItem: (id) =>
         set((state) => ({
           items: state.items.filter((item) => item.product.id !== id),
         })),
