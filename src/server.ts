@@ -9,6 +9,8 @@ import { IncomingMessage } from "http"
 import { stripeWebHookHandler } from "./webhooks"
 import nextBuild from "next/dist/build"
 import path from "path"
+import { PayloadRequest } from "payload/types"
+import { parse } from "url"
 
 const app = express()
 const PORT = Number(process.env.PORT) || 3000
@@ -23,25 +25,27 @@ const createContext = ({
 
 export type ExpressContext = inferAsyncReturnType<typeof createContext>
 
-export type WebHookRequest = IncomingMessage & { rawbody: Buffer }
+export type WebhookRequest = IncomingMessage & {
+  rawBody: Buffer
+}
 
 const start = async () => {
-  const webHookMiddleware = bodyParser.json({
-    verify: (req: WebHookRequest, _, buffer) => {
-      req.rawbody = buffer
+  const webhookMiddleware = bodyParser.json({
+    verify: (req: WebhookRequest, _, buffer) => {
+      req.rawBody = buffer
     },
   })
+
+  app.post("/api/webhooks/stripe", webhookMiddleware, stripeWebHookHandler)
 
   const payload = await getPayloadClient({
     initOptions: {
       express: app,
       onInit: async (cms) => {
-        cms.logger.info(`Admin URL ${cms.getAdminURL()}`)
+        cms.logger.info(`Admin URL: ${cms.getAdminURL()}`)
       },
     },
   })
-
-  app.post("/api/webhooks/stripe", webHookMiddleware, stripeWebHookHandler)
 
   if (process.env.NEXT_BUILD) {
     app.listen(PORT, async () => {
@@ -52,6 +56,7 @@ const start = async () => {
 
       process.exit()
     })
+    return
   }
 
   app.use(
