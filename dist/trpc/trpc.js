@@ -48,9 +48,7 @@ var isAuth = middleware(function (_a) {
             req = ctx.req;
             user = req.user;
             if (!user || !user.id) {
-                throw new server_1.TRPCError({
-                    code: "UNAUTHORIZED",
-                });
+                throw new server_1.TRPCError({ code: "UNAUTHORIZED" });
             }
             return [2 /*return*/, next({
                     ctx: {

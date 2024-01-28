@@ -48,7 +48,7 @@ exports.paymentRouter = (0, trpc_1.router)({
         .mutation(function (_a) {
         var ctx = _a.ctx, input = _a.input;
         return __awaiter(void 0, void 0, void 0, function () {
-            var user, productIds, payload, products, filteredProducts, order, line_items, stripeSession, error_1;
+            var user, productIds, payload, products, filteredProducts, order, line_items, stripeSession, err_1;
             return __generator(this, function (_b) {
                 switch (_b.label) {
                     case 0:
@@ -70,14 +70,12 @@ exports.paymentRouter = (0, trpc_1.router)({
                             })];
                     case 2:
                         products = (_b.sent()).docs;
-                        filteredProducts = products.filter(function (product) {
-                            return Boolean(product.priceId);
-                        });
+                        filteredProducts = products.filter(function (prod) { return Boolean(prod.priceId); });
                         return [4 /*yield*/, payload.create({
                                 collection: "orders",
                                 data: {
                                     _isPaid: false,
-                                    products: filteredProducts.map(function (product) { return product.id; }),
+                                    products: filteredProducts.map(function (prod) { return prod.id; }),
                                     user: user.id,
                                 },
                             })];
@@ -113,21 +111,16 @@ exports.paymentRouter = (0, trpc_1.router)({
                             })];
                     case 5:
                         stripeSession = _b.sent();
-                        return [2 /*return*/, {
-                                url: stripeSession.url,
-                            }];
+                        return [2 /*return*/, { url: stripeSession.url }];
                     case 6:
-                        error_1 = _b.sent();
-                        console.log(error_1);
-                        return [2 /*return*/, {
-                                url: null,
-                            }];
+                        err_1 = _b.sent();
+                        return [2 /*return*/, { url: null }];
                     case 7: return [2 /*return*/];
                 }
             });
         });
     }),
-    pollOrderStatus: trpc_1.publicProcedure
+    pollOrderStatus: trpc_1.privateProcedure
         .input(zod_1.z.object({ orderId: zod_1.z.string() }))
         .query(function (_a) {
         var input = _a.input;
@@ -154,9 +147,7 @@ exports.paymentRouter = (0, trpc_1.router)({
                             throw new server_1.TRPCError({ code: "NOT_FOUND" });
                         }
                         order = orders[0];
-                        return [2 /*return*/, {
-                                isPaid: order._isPaid,
-                            }];
+                        return [2 /*return*/, { isPaid: order._isPaid }];
                 }
             });
         });

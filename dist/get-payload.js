@@ -55,7 +55,6 @@ var dotenv_1 = __importDefault(require("dotenv"));
 var path_1 = __importDefault(require("path"));
 var payload_1 = __importDefault(require("payload"));
 var nodemailer_1 = __importDefault(require("nodemailer"));
-// Load environment variables from a .env file
 dotenv_1.default.config({
     path: path_1.default.resolve(__dirname, "../.env"),
 });
@@ -68,20 +67,17 @@ var transporter = nodemailer_1.default.createTransport({
         pass: process.env.RESEND_API_KEY,
     },
 });
-// Global caching object for the Payload client
 var cached = global.payload;
-// If the cache doesn't exist, create it with client and promise properties set to null
 if (!cached) {
     cached = global.payload = {
         client: null,
         promise: null,
     };
 }
-// Export a function to get or initialize the Payload client
 var getPayloadClient = function (_a) {
     var _b = _a === void 0 ? {} : _a, initOptions = _b.initOptions;
     return __awaiter(void 0, void 0, void 0, function () {
-        var _c, err_1;
+        var _c, e_1;
         return __generator(this, function (_d) {
             switch (_d.label) {
                 case 0:
@@ -91,7 +87,6 @@ var getPayloadClient = function (_a) {
                     if (cached.client) {
                         return [2 /*return*/, cached.client];
                     }
-                    // If the promise is not created yet, initialize Payload with options
                     if (!cached.promise) {
                         cached.promise = payload_1.default.init(__assign({ email: {
                                 transport: transporter,
@@ -102,18 +97,15 @@ var getPayloadClient = function (_a) {
                     _d.label = 1;
                 case 1:
                     _d.trys.push([1, 3, , 4]);
-                    // Await the promise to initialize the client and store it in the cache
                     _c = cached;
                     return [4 /*yield*/, cached.promise];
                 case 2:
-                    // Await the promise to initialize the client and store it in the cache
                     _c.client = _d.sent();
                     return [3 /*break*/, 4];
                 case 3:
-                    err_1 = _d.sent();
-                    // If an error occurs during initialization, clear the promise and throw the error
+                    e_1 = _d.sent();
                     cached.promise = null;
-                    throw err_1;
+                    throw e_1;
                 case 4: return [2 /*return*/, cached.client];
             }
         });

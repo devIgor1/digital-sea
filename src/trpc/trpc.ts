@@ -12,9 +12,7 @@ const isAuth = middleware(async ({ ctx, next }) => {
   const { user } = req as { user: User | null }
 
   if (!user || !user.id) {
-    throw new TRPCError({
-      code: "UNAUTHORIZED",
-    })
+    throw new TRPCError({ code: "UNAUTHORIZED" })
   }
 
   return next({
