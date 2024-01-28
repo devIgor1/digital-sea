@@ -27,15 +27,13 @@ export const paymentRouter = router({
         },
       })
 
-      const filteredProducts = products.filter((product) =>
-        Boolean(product.priceId)
-      )
+      const filteredProducts = products.filter((prod) => Boolean(prod.priceId))
 
       const order = await payload.create({
         collection: "orders",
         data: {
           _isPaid: false,
-          products: filteredProducts.map((product) => product.id),
+          products: filteredProducts.map((prod) => prod.id),
           user: user.id,
         },
       })
@@ -70,19 +68,12 @@ export const paymentRouter = router({
           line_items,
         })
 
-        return {
-          url: stripeSession.url,
-        }
-      } catch (error) {
-        console.log(error)
-
-        return {
-          url: null,
-        }
+        return { url: stripeSession.url }
+      } catch (err) {
+        return { url: null }
       }
     }),
-
-  pollOrderStatus: publicProcedure
+  pollOrderStatus: privateProcedure
     .input(z.object({ orderId: z.string() }))
     .query(async ({ input }) => {
       const { orderId } = input
@@ -97,14 +88,13 @@ export const paymentRouter = router({
           },
         },
       })
+
       if (!orders.length) {
         throw new TRPCError({ code: "NOT_FOUND" })
       }
 
       const [order] = orders
 
-      return {
-        isPaid: order._isPaid,
-      }
+      return { isPaid: order._isPaid }
     }),
 })
