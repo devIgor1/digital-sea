@@ -1,3 +1,3 @@
-const Cart = () => {}
+const Page = () => {}
 
-export default Cart
+export default Page
