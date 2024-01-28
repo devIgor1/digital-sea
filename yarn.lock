@@ -2323,6 +2323,13 @@
   dependencies:
     undici-types "~5.26.4"
 
+"@types/node@>=8.1.0":
+  version "20.11.9"
+  resolved "https://registry.yarnpkg.com/@types/node/-/node-20.11.9.tgz#959d436f20ce2ee3df897c3eaa0617c98fa70efb"
+  integrity sha512-CQXNuMoS/VcoAMISe5pm4JnEd1Br5jildbQEToEMQvutmv+EaQr90ry9raiudgpyDuqFiV9e4rnjSfLNq12M5w==
+  dependencies:
+    undici-types "~5.26.4"
+
 "@types/nodemailer@^6.4.14":
   version "6.4.14"
   resolved "https://registry.yarnpkg.com/@types/nodemailer/-/nodemailer-6.4.14.tgz#5c81a5e856db7f8ede80013e6dbad7c5fb2283e2"
@@ -7558,7 +7565,7 @@ qs@6.11.0:
   dependencies:
     side-channel "^1.0.4"
 
-qs@6.11.2, qs@^6.9.1:
+qs@6.11.2, qs@^6.11.0, qs@^6.9.1:
   version "6.11.2"
   resolved "https://registry.yarnpkg.com/qs/-/qs-6.11.2.tgz#64bea51f12c1f5da1bc01496f48ffcff7c69d7d9"
   integrity sha512-tDNIz22aBzCDxLtVH++VnTfzxlfeK5CbqohpSqpJgj1Wg/cQbStNAz3NuqCs5vV+pjBsK4x4pN9HlVh7rcYRiA==
@@ -8518,6 +8525,14 @@ strip-json-comments@~2.0.1:
   version "2.0.1"
   resolved "https://registry.yarnpkg.com/strip-json-comments/-/strip-json-comments-2.0.1.tgz#3c531942e908c2697c0ec344858c286c7ca0a60a"
   integrity sha512-4gB8na07fecVVkOI6Rs4e7T6NOTki5EmL7TUduTs6bu3EdnSycntVJ4re8kgZA+wx9IueI2Y11bfbgwtzuE0KQ==
+
+stripe@^14.14.0:
+  version "14.14.0"
+  resolved "https://registry.yarnpkg.com/stripe/-/stripe-14.14.0.tgz#4911e2ef2c97dde0d2832ceaa90525f17f8703ce"
+  integrity sha512-P6lvKHxgDzZXto9VMstG1ucv4Ls0U9nOoQhVZABXJ33kRD7zMwkBy5Y4c3BO59O230uSTkOFPLh87YxVzkp0Mg==
+  dependencies:
+    "@types/node" ">=8.1.0"
+    qs "^6.11.0"
 
 strnum@^1.0.5:
   version "1.0.5"
