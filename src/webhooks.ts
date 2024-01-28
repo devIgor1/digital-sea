@@ -1,6 +1,6 @@
 import express from "express"
-import { stripe } from "./lib/stripe"
 import { WebhookRequest } from "./server"
+import { stripe } from "./lib/stripe"
 import type Stripe from "stripe"
 import { getPayloadClient } from "./get-payload"
 import { Product } from "./payload-types"
@@ -9,7 +9,7 @@ import { ReceiptEmailHtml } from "./components/emails/ReceiptEmail"
 
 const resend = new Resend(process.env.RESEND_API_KEY)
 
-export const stripeWebHookHandler = async (
+export const stripeWebhookHandler = async (
   req: express.Request,
   res: express.Response
 ) => {
@@ -66,7 +66,7 @@ export const stripeWebHookHandler = async (
 
     const [order] = orders
 
-    if (!user) return res.status(404).json({ error: "No such order exists." })
+    if (!order) return res.status(404).json({ error: "No such order exists." })
 
     await payload.update({
       collection: "orders",
@@ -83,7 +83,7 @@ export const stripeWebHookHandler = async (
     // send receipt
     try {
       const data = await resend.emails.send({
-        from: "Digital Sea <hello@codedbyigor.com>",
+        from: "DigitalHippo <hello@joshtriedcoding.com>",
         to: [user.email],
         subject: "Thanks for your order! This is your receipt.",
         html: ReceiptEmailHtml({
