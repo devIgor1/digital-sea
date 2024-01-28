@@ -6,7 +6,7 @@ import { appRouter } from "./trpc"
 import { inferAsyncReturnType } from "@trpc/server"
 import bodyParser from "body-parser"
 import { IncomingMessage } from "http"
-import { stripeWebHookHandler } from "./webhooks"
+import { stripeWebhookHandler } from "./webhooks"
 import nextBuild from "next/dist/build"
 import path from "path"
 import { PayloadRequest } from "payload/types"
@@ -36,7 +36,7 @@ const start = async () => {
     },
   })
 
-  app.post("/api/webhooks/stripe", webhookMiddleware, stripeWebHookHandler)
+  app.post("/api/webhooks/stripe", webhookMiddleware, stripeWebhookHandler)
 
   const payload = await getPayloadClient({
     initOptions: {
@@ -56,9 +56,26 @@ const start = async () => {
 
       process.exit()
     })
+
     return
   }
 
+  const cartRouter = express.Router()
+
+  cartRouter.use(payload.authenticate)
+
+  cartRouter.get("/", (req, res) => {
+    const request = req as PayloadRequest
+
+    if (!request.user) return res.redirect("/sign-in?origin=cart")
+
+    const parsedUrl = parse(req.url, true)
+    const { query } = parsedUrl
+
+    return nextApp.render(req, res, "/cart", query)
+  })
+
+  app.use("/cart", cartRouter)
   app.use(
     "/api/trpc",
     trpcExpress.createExpressMiddleware({

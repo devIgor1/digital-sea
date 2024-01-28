@@ -36,13 +36,13 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
     }
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.stripeWebHookHandler = void 0;
+exports.stripeWebhookHandler = void 0;
 var stripe_1 = require("./lib/stripe");
 var get_payload_1 = require("./get-payload");
 var resend_1 = require("resend");
 var ReceiptEmail_1 = require("./components/emails/ReceiptEmail");
 var resend = new resend_1.Resend(process.env.RESEND_API_KEY);
-var stripeWebHookHandler = function (req, res) { return __awaiter(void 0, void 0, void 0, function () {
+var stripeWebhookHandler = function (req, res) { return __awaiter(void 0, void 0, void 0, function () {
     var webhookRequest, body, signature, event, session, payload, users, user, orders, order, data, error_1;
     var _a, _b;
     return __generator(this, function (_c) {
@@ -92,7 +92,7 @@ var stripeWebHookHandler = function (req, res) { return __awaiter(void 0, void 0
             case 3:
                 orders = (_c.sent()).docs;
                 order = orders[0];
-                if (!user)
+                if (!order)
                     return [2 /*return*/, res.status(404).json({ error: "No such order exists." })];
                 return [4 /*yield*/, payload.update({
                         collection: "orders",
@@ -113,7 +113,7 @@ var stripeWebHookHandler = function (req, res) { return __awaiter(void 0, void 0
             case 5:
                 _c.trys.push([5, 7, , 8]);
                 return [4 /*yield*/, resend.emails.send({
-                        from: "Digital Sea <hello@codedbyigor.com>",
+                        from: "DigitalHippo <hello@joshtriedcoding.com>",
                         to: [user.email],
                         subject: "Thanks for your order! This is your receipt.",
                         html: (0, ReceiptEmail_1.ReceiptEmailHtml)({
@@ -135,4 +135,4 @@ var stripeWebHookHandler = function (req, res) { return __awaiter(void 0, void 0
         }
     });
 }); };
-exports.stripeWebHookHandler = stripeWebHookHandler;
+exports.stripeWebhookHandler = stripeWebhookHandler;
