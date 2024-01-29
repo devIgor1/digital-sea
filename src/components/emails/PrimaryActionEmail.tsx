@@ -33,8 +33,8 @@ export const EmailTemplate = ({
         <Container style={container}>
           <Img
             src={`${process.env.NEXT_PUBLIC_SERVER_URL}/welcome-penguin.jpg`}
-            width="150"
-            height="150"
+            width="151"
+            height="151"
             alt="Digital Sea"
             style={logo}
           />
