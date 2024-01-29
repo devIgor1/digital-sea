@@ -26,9 +26,9 @@ export function formatPrice(
 }
 
 export function constructMetadata({
-  title = "DigitalSea - the marketplace for digital assets",
-  description = "DigitalSea is an open-source marketplace for high-quality digital goods.",
-  image = "/thumbnail.png",
+  title = "Digital Sea - the marketplace for digital assets",
+  description = "Digital Sea is an open-source marketplace for high-quality digital goods.",
+  image = "/thumbnail.jpg",
   icons = "/favicon.ico",
   noIndex = false,
 }: {
@@ -58,7 +58,7 @@ export function constructMetadata({
       creator: "@codedbyigor",
     },
     icons,
-    metadataBase: new URL("https://digital-sea.up.railway.app"),
+    metadataBase: new URL("https://digital-sea-production.up.railway.app/ "),
     ...(noIndex && {
       robots: {
         index: false,
