@@ -15,7 +15,7 @@ const yourOwnAndPurchased: Access = async ({ req }) => {
 
   const { docs: products } = await req.payload.find({
     collection: "products",
-    depth: 0, // just getting the user id
+    depth: 0,
     where: {
       user: {
         equals: user.id,
@@ -23,13 +23,11 @@ const yourOwnAndPurchased: Access = async ({ req }) => {
     },
   })
 
-  const ownProductFileIds = products
-    .map((product) => product.product_files)
-    .flat()
+  const ownProductFileIds = products.map((prod) => prod.product_files).flat()
 
   const { docs: orders } = await req.payload.find({
     collection: "orders",
-    depth: 2, // it's gonna merge tables together, which means that we can also see which user and product the order belongs to
+    depth: 2,
     where: {
       user: {
         equals: user.id,
@@ -37,7 +35,7 @@ const yourOwnAndPurchased: Access = async ({ req }) => {
     },
   })
 
-  const purchasedProductFileId = orders
+  const purchasedProductFileIds = orders
     .map((order) => {
       return order.products.map((product) => {
         if (typeof product === "string")
@@ -55,7 +53,7 @@ const yourOwnAndPurchased: Access = async ({ req }) => {
 
   return {
     id: {
-      in: [...ownProductFileIds, ...purchasedProductFileId],
+      in: [...ownProductFileIds, ...purchasedProductFileIds],
     },
   }
 }

@@ -9,7 +9,6 @@ const isAdminOrHasAccessToImages =
     if (!user) return false
     if (user.role === "admin") return true
 
-    //only allow access to your images
     return {
       user: {
         equals: req.user.id,
@@ -26,7 +25,6 @@ export const Media: CollectionConfig = {
       },
     ],
   },
-  //this defines who can see what, who can delete which images and so on...
   access: {
     read: async ({ req }) => {
       const referer = req.headers.referer
