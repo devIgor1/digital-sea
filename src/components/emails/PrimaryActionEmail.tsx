@@ -32,15 +32,15 @@ export const EmailTemplate = ({
       <Body style={main}>
         <Container style={container}>
           <Img
-            src={`${process.env.NEXT_PUBLIC_SERVER_URL}/public/welcome-penguin.jpg`}
+            src={`${process.env.NEXT_PUBLIC_SERVER_URL}/welcome-penguin.jpg`}
             width="150"
             height="150"
-            alt="DigitalSea"
+            alt="Digital Sea"
             style={logo}
           />
           <Text style={paragraph}>Hi there,</Text>
           <Text style={paragraph}>
-            Welcome to DigitalSea, the marketplace for high quality digital
+            Welcome to Digital Sea, the marketplace for high quality digital
             goods. Use the button below to {actionLabel}.
           </Text>
           <Section style={btnContainer}>
@@ -51,7 +51,7 @@ export const EmailTemplate = ({
           <Text style={paragraph}>
             Best,
             <br />
-            The DigitalSea team
+            The Digital Sea team
           </Text>
           <Hr style={hr} />
           <Text style={footer}>
