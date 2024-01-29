@@ -58,10 +58,7 @@ var isAdminOrHasAccessToImages = function () {
                 if (!user)
                     return [2 /*return*/, false];
                 if (user.role === "admin")
-                    return [2 /*return*/, true
-                        //only allow access to your images
-                    ];
-                //only allow access to your images
+                    return [2 /*return*/, true];
                 return [2 /*return*/, {
                         user: {
                             equals: req.user.id,
@@ -81,7 +78,6 @@ exports.Media = {
             },
         ],
     },
-    //this defines who can see what, who can delete which images and so on...
     access: {
         read: function (_a) {
             var req = _a.req;

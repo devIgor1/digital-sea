@@ -54,7 +54,7 @@ exports.authRouter = (0, trpc_1.router)({
                     case 0:
                         email = input.email, password = input.password;
                         return [4 /*yield*/, (0, get_payload_1.getPayloadClient)()
-                            //check if user already exists
+                            // check if user already exists
                         ];
                     case 1:
                         payload = _b.sent();
@@ -116,7 +116,7 @@ exports.authRouter = (0, trpc_1.router)({
         .mutation(function (_a) {
         var input = _a.input, ctx = _a.ctx;
         return __awaiter(void 0, void 0, void 0, function () {
-            var email, password, res, payload, error_1;
+            var email, password, res, payload, err_1;
             return __generator(this, function (_b) {
                 switch (_b.label) {
                     case 0:
@@ -140,7 +140,7 @@ exports.authRouter = (0, trpc_1.router)({
                         _b.sent();
                         return [2 /*return*/, { success: true }];
                     case 4:
-                        error_1 = _b.sent();
+                        err_1 = _b.sent();
                         throw new server_1.TRPCError({ code: "UNAUTHORIZED" });
                     case 5: return [2 /*return*/];
                 }

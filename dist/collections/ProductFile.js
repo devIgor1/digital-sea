@@ -65,7 +65,7 @@ var addUser = function (_a) {
 var yourOwnAndPurchased = function (_a) {
     var req = _a.req;
     return __awaiter(void 0, void 0, void 0, function () {
-        var user, products, ownProductFileIds, orders, purchasedProductFileId;
+        var user, products, ownProductFileIds, orders, purchasedProductFileIds;
         return __generator(this, function (_b) {
             switch (_b.label) {
                 case 0:
@@ -76,7 +76,7 @@ var yourOwnAndPurchased = function (_a) {
                         return [2 /*return*/, false];
                     return [4 /*yield*/, req.payload.find({
                             collection: "products",
-                            depth: 0, // just getting the user id
+                            depth: 0,
                             where: {
                                 user: {
                                     equals: user.id,
@@ -85,12 +85,10 @@ var yourOwnAndPurchased = function (_a) {
                         })];
                 case 1:
                     products = (_b.sent()).docs;
-                    ownProductFileIds = products
-                        .map(function (product) { return product.product_files; })
-                        .flat();
+                    ownProductFileIds = products.map(function (prod) { return prod.product_files; }).flat();
                     return [4 /*yield*/, req.payload.find({
                             collection: "orders",
-                            depth: 2, // it's gonna merge tables together, which means that we can also see which user and product the order belongs to
+                            depth: 2,
                             where: {
                                 user: {
                                     equals: user.id,
@@ -99,7 +97,7 @@ var yourOwnAndPurchased = function (_a) {
                         })];
                 case 2:
                     orders = (_b.sent()).docs;
-                    purchasedProductFileId = orders
+                    purchasedProductFileIds = orders
                         .map(function (order) {
                         return order.products.map(function (product) {
                             if (typeof product === "string")
@@ -113,7 +111,7 @@ var yourOwnAndPurchased = function (_a) {
                         .flat();
                     return [2 /*return*/, {
                             id: {
-                                in: __spreadArray(__spreadArray([], ownProductFileIds, true), purchasedProductFileId, true),
+                                in: __spreadArray(__spreadArray([], ownProductFileIds, true), purchasedProductFileIds, true),
                             },
                         }];
             }

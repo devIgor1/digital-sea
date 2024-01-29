@@ -29,7 +29,7 @@ const ProductReel = (props: ProductReelProps) => {
       }
     )
 
-  const products = queryResults?.pages.flatMap((page) => page.products)
+  const products = queryResults?.pages.flatMap((page) => page.items)
 
   let map: (Product | null)[] = []
   if (products && products.length) {

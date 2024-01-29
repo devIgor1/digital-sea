@@ -27,7 +27,7 @@ exports.default = (0, config_1.buildConfig)({
         user: "users",
         bundler: (0, bundler_webpack_1.webpackBundler)(),
         meta: {
-            titleSuffix: "- Digital Sea",
+            titleSuffix: "- DigitalSea",
             favicon: "/favicon.ico",
             ogImage: "/thumbnail.jpg",
         },

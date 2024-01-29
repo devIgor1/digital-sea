@@ -64,32 +64,32 @@ var auth_router_1 = require("./auth-router");
 var trpc_1 = require("./trpc");
 var query_validator_1 = require("../lib/validators/query-validator");
 var get_payload_1 = require("../get-payload");
-var payment_router_1 = require("./payment.router");
+var payment_router_1 = require("./payment-router");
 exports.appRouter = (0, trpc_1.router)({
     auth: auth_router_1.authRouter,
     payment: payment_router_1.paymentRouter,
     getInfiniteProducts: trpc_1.publicProcedure
         .input(zod_1.z.object({
         limit: zod_1.z.number().min(1).max(100),
-        cursor: zod_1.z.number().nullish(), //last product
+        cursor: zod_1.z.number().nullish(),
         query: query_validator_1.QueryValidator,
     }))
         .query(function (_a) {
         var input = _a.input;
         return __awaiter(void 0, void 0, void 0, function () {
-            var query, cursor, sort, limit, queryOptions, payload, parsedQueryOptions, page, _b, products, hasNextPage, nextPage;
+            var query, cursor, sort, limit, queryOpts, payload, parsedQueryOpts, page, _b, items, hasNextPage, nextPage;
             return __generator(this, function (_c) {
                 switch (_c.label) {
                     case 0:
                         query = input.query, cursor = input.cursor;
-                        sort = query.sort, limit = query.limit, queryOptions = __rest(query, ["sort", "limit"]);
+                        sort = query.sort, limit = query.limit, queryOpts = __rest(query, ["sort", "limit"]);
                         return [4 /*yield*/, (0, get_payload_1.getPayloadClient)()];
                     case 1:
                         payload = _c.sent();
-                        parsedQueryOptions = {};
-                        Object.entries(queryOptions).forEach(function (_a) {
+                        parsedQueryOpts = {};
+                        Object.entries(queryOpts).forEach(function (_a) {
                             var key = _a[0], value = _a[1];
-                            parsedQueryOptions[key] = {
+                            parsedQueryOpts[key] = {
                                 equals: value,
                             };
                         });
@@ -98,16 +98,16 @@ exports.appRouter = (0, trpc_1.router)({
                                 collection: "products",
                                 where: __assign({ approvedForSale: {
                                         equals: "approved",
-                                    } }, parsedQueryOptions),
+                                    } }, parsedQueryOpts),
                                 sort: sort,
                                 depth: 1,
                                 limit: limit,
                                 page: page,
                             })];
                     case 2:
-                        _b = _c.sent(), products = _b.docs, hasNextPage = _b.hasNextPage, nextPage = _b.nextPage;
+                        _b = _c.sent(), items = _b.docs, hasNextPage = _b.hasNextPage, nextPage = _b.nextPage;
                         return [2 /*return*/, {
-                                products: products,
+                                items: items,
                                 nextPage: hasNextPage ? nextPage : null,
                             }];
                 }
