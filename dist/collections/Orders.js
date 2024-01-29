@@ -15,7 +15,7 @@ exports.Orders = {
     slug: "orders",
     admin: {
         useAsTitle: "Your Orders",
-        description: "A summary of all your orders on DigitalSea.",
+        description: "A summary of all your orders on DigitalHippo.",
     },
     access: {
         read: yourOwn,
