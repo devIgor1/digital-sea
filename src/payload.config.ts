@@ -19,6 +19,7 @@ export default buildConfig({
   routes: {
     admin: "/sell",
   },
+  collections: [Users, Products, Media, ProductFiles, Orders],
   admin: {
     user: "users",
     bundler: webpackBundler(),
