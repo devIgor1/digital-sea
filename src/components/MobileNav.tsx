@@ -1,7 +1,7 @@
 "use client"
 
 import { PRODUCT_CATEGORIES } from "@/config"
-import { Menu, X } from "lucide-react"
+import { LogInIcon, Menu, UserCircle2, X } from "lucide-react"
 import Image from "next/image"
 import Link from "next/link"
 import { usePathname } from "next/navigation"
@@ -40,7 +40,7 @@ const MobileNav = () => {
 
   return (
     <div>
-      <div className="relative z-40 lg:hidden">
+      <div className="relative z-40 md:hidden">
         <div className="fixed inset-0 bg-black bg-opacity-25" />
       </div>
 
@@ -97,23 +97,25 @@ const MobileNav = () => {
               </ul>
             </div>
 
-            <div className="space-y-6 border-t border-gray-200 px-4 py-6">
+            <div className="border-t border-gray-200 px-4 py-6 flex items-center justify-between">
               <div className="flow-root">
                 <Link
                   onClick={() => closeOnCurrent("/sign-in")}
                   href="/sign-in"
-                  className="-m-2 block p-2 font-medium text-gray-900"
+                  className="-m-2 p-2 font-medium text-gray-900 hover:bg-gray-200 rounded-lg flex items-center gap-2"
                 >
                   Sign in
+                  <LogInIcon className="text-gray-700" />
                 </Link>
               </div>
               <div className="flow-root">
                 <Link
                   onClick={() => closeOnCurrent("/sign-up")}
                   href="/sign-up"
-                  className="-m-2 block p-2 font-medium text-gray-900"
+                  className="-m-2 p-2 font-medium text-gray-900 hover:bg-gray-200 rounded-lg flex items-center gap-2"
                 >
                   Sign up
+                  <UserCircle2 className="text-gray-700" />
                 </Link>
               </div>
             </div>
