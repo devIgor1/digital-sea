@@ -3,7 +3,6 @@ import { webpackBundler } from "@payloadcms/bundler-webpack"
 import { mongooseAdapter } from "@payloadcms/db-mongodb"
 import { slateEditor } from "@payloadcms/richtext-slate"
 import path from "path"
-import { Users } from "./collections/Users"
 import dotenv from "dotenv"
 import { Products } from "./collections/Products/Products"
 import { Media } from "./collections/Media"
@@ -19,7 +18,7 @@ export default buildConfig({
   routes: {
     admin: "/sell",
   },
-  collections: [Users, Products, Media, ProductFiles, Orders],
+  collections: [Products, Media, ProductFiles, Orders],
   admin: {
     user: "users",
     bundler: webpackBundler(),
