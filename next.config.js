@@ -1,7 +1,7 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   images: {
-    domains: ["localhost", "https://digital-sea-production.up.railway.app"],
+    domains: ["localhost", "digital-sea-production.up.railway.app"],
   },
 }
 
