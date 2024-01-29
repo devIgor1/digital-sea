@@ -28,8 +28,8 @@ export function formatPrice(
 export function constructMetadata({
   title = "Digital Sea - The Marketplace for Digital Assets",
   description = "Digital Sea is an open-source marketplace for high-quality digital goods.",
-  image = "/thumbnail.jpg",
-  icons = "/favicon.ico",
+  image = "/public/welcome-penguin.jpg",
+  icons = "/public/favicon.png",
   noIndex = false,
 }: {
   title?: string
