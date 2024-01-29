@@ -50,13 +50,7 @@ export function constructMetadata({
         },
       ],
     },
-    twitter: {
-      card: "summary_large_image",
-      title,
-      description,
-      images: [image],
-      creator: "@codedbyigor",
-    },
+
     icons,
     metadataBase: new URL("https://digital-sea-production.up.railway.app/"),
     ...(noIndex && {

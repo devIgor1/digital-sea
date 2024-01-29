@@ -3,8 +3,12 @@ const nextConfig = {
   images: {
     remotePatterns: [
       {
-        hostname: "localhost",
         protocol: "http",
+        hostname: "localhost",
+      },
+      {
+        protocol: "https",
+        hostname: "https://digital-sea-production.up.railway.app",
       },
     ],
   },
