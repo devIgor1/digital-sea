@@ -24,15 +24,27 @@ Criado totalmente com Next.js 14 utilizando App Router, PayloadCMS, tRPC e Tailw
 # 👌 Boas Práticas de Programação
 
 🛠️ Um mercado de produtos digitais completo feito com Next.js14.
+
 💻 Aplicação inteira responsiva e interatividades para inclusão social.
+
 💳 Dashboard completo para admins.
+
 🛍️ Usuários podem comprar e vender produtos.
+
 🛒 Carrinho de compras persistente.
 🔑 Autenticação utilizando Payload CMS
+
 🖥️ Aprendi como auto-hostear uma aplicação Next.js
-🌟 Um design extremamente limpo e bonito utilizando Shadcn-ui
+
+🌟 Um design extremamente limpo, responsivo e bonito utilizando Shadcn-ui
+
 ✉️ Emails incríveis e bonitos para verificação de autenticação e agradecimento pela compra.
+
 ✅ Administradores podem verificar e aprovar um produto, melhorando a qualidade do site.
-⌨️ Feito 100% com Typescript, código mais seguro, legível e melhor para manutenção por contaa das suas tipagens.
+
+⌨️ Feito 100% com Typescript, código mais seguro, legível e melhor para manutenção por 
+conta das suas tipagens.
+
+# 👾 Deploy
 
 
