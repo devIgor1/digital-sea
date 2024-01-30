@@ -49,7 +49,7 @@ var ReceiptEmail = function (_a) {
             React.createElement(components_1.Container, { style: container },
                 React.createElement(components_1.Section, null,
                     React.createElement(components_1.Column, null,
-                        React.createElement(components_1.Img, { src: "".concat(process.env.NEXT_PUBLIC_SERVER_URL, "/receipt-penguin-order.jpg"), width: "100", height: "100", alt: "Digital Sea" })),
+                        React.createElement(components_1.Img, { src: "".concat(process.env.NEXT_PUBLIC_SERVER_URL, "/receipt-email-penguin.png"), width: "100", height: "100", alt: "Digital Sea" })),
                     React.createElement(components_1.Column, { align: "right", style: tableCell },
                         React.createElement(components_1.Text, { style: heading }, "Receipt"))),
                 React.createElement(components_1.Section, { style: informationTable },
