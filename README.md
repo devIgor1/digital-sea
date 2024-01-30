@@ -47,4 +47,26 @@ conta das suas tipagens.
 
 # 👾 Deploy
 
+https://digital-sea-production.up.railway.app/
+
+## FAQ
+
+#### Como assim auto-hosteamento do Next.js?
+
+Neste projeto é configurado um hosteamento próprio para o Next.js, assim ele pode ser hosteado em qualquer plataforma. Mas porque disso? 
+
+Porque no projeto utilizamos Express para o servidor back-end, e o Express não é permitido na plataforma Vercel(criadora do Next.js). Para isso fazemos uma configuração e conseguimos utilizar Express e hostear ele em qualquer plataforma, no caso, Railway.
+
+#### Posso usar meu email pessoal para funcionalidade de envio de verificação de email com o Resend?
+
+Não, é necessário ter um domínio próprio para conseguir utilizar a funcionalidade em ambiente de produção. O Resend proporciona um email para ambiente de desenvolvimento.
+
+## Installation
+
+Instale as dependências do projeto utilizando yarn
+
+```bash
+  yarn install my-project
+  cd my-project
+```
 
