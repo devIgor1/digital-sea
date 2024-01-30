@@ -61,6 +61,10 @@ Porque no projeto utilizamos Express para o servidor back-end, e o Express não 
 
 Não, é necessário ter um domínio próprio para conseguir utilizar a funcionalidade em ambiente de produção. O Resend proporciona um email apenas para ambiente de desenvolvimento.
 
+#### Qual cartão posso utilizar no momento da compra?
+
+Use o número 4242-4242-4242-4242, é o número fornecido pela documentação do Stripe. O resto das informações pode digitar qualquer número.
+
 ## Installation
 
 Instale as dependências do projeto utilizando yarn
