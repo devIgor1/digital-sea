@@ -33,6 +33,7 @@ Criado totalmente com Next.js 14 utilizando App Router, PayloadCMS, tRPC e Tailw
 🛍️ Usuários podem comprar e vender produtos.
 
 🛒 Carrinho de compras persistente.
+
 🔑 Autenticação utilizando Payload CMS
 
 🖥️ Aprendi como auto-hostear uma aplicação Next.js
@@ -56,7 +57,7 @@ https://digital-sea-production.up.railway.app/
 
 Neste projeto é configurado um hosteamento próprio para o Next.js, assim ele pode ser hosteado em qualquer plataforma. Mas porque disso? 
 
-Porque no projeto utilizamos Express para o servidor back-end, e o Express não é permitido na plataforma Vercel(criadora do Next.js). Para isso fazemos uma configuração e conseguimos utilizar Express e hostear ele em qualquer plataforma, no caso, Railway.
+Um dos motivos é que você tem controle total sobre a infraestrutura e o ambiente de execução do seu projeto. Isso permite ajustes finos e personalização para atender às necessidades específicas do seu projeto. E uma coisa bacana é que você não fica preso à dar deploy na Vercel, como ele é self-host, o deploy pode ser feito em qualquer lugar.
 
 #### Posso usar meu email pessoal para funcionalidade de envio de verificação de email com o Resend?
 
