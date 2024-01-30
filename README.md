@@ -6,8 +6,7 @@ Criado totalmente com Next.js 14 utilizando App Router, PayloadCMS, tRPC e Tailw
 # 🎨 Layout
 <p float="left">
 ![image](https://github.com/devIgor1/digital-sea/assets/88665118/8c1e3cdb-79f1-4e7f-bbed-fa0e09992267)
-  ![image](https://github.com/devIgor1/digital-sea/assets/88665118/e7dc8e9c-1d86-4020-abc3-4d70b974ee0f)
-
+![image](https://github.com/devIgor1/digital-sea/assets/88665118/e7dc8e9c-1d86-4020-abc3-4d70b974ee0f)
 </p>
 
 
