@@ -59,7 +59,7 @@ Porque no projeto utilizamos Express para o servidor back-end, e o Express não 
 
 #### Posso usar meu email pessoal para funcionalidade de envio de verificação de email com o Resend?
 
-Não, é necessário ter um domínio próprio para conseguir utilizar a funcionalidade em ambiente de produção. O Resend proporciona um email para ambiente de desenvolvimento.
+Não, é necessário ter um domínio próprio para conseguir utilizar a funcionalidade em ambiente de produção. O Resend proporciona um email apenas para ambiente de desenvolvimento.
 
 ## Installation
 
