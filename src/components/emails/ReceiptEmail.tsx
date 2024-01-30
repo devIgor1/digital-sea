@@ -37,14 +37,14 @@ export const ReceiptEmail = ({
   return (
     <Html>
       <Head />
-      <Preview>Your DigitalHippo Receipt</Preview>
+      <Preview>Your Digital Sea Receipt</Preview>
 
       <Body style={main}>
         <Container style={container}>
           <Section>
             <Column>
               <Img
-                src={`${process.env.NEXT_PUBLIC_SERVER_URL}/penguin-email-sent.png`}
+                src={`${process.env.NEXT_PUBLIC_SERVER_URL}/receipt-email-penguin.png`}
                 width="100"
                 height="100"
                 alt="Digital Sea"
