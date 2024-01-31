@@ -21,6 +21,7 @@ Criado totalmente com Next.js 14 utilizando App Router, PayloadCMS, tRPC e Tailw
 - Sooner
 - Lucide Icons
 - Shadcn-ui
+- Zustand
 
 # 👌 Boas Práticas de Programação
 
